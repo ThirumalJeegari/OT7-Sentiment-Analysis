@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Sentiment Analysis</title>
     <style>
-        /* Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -23,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation Bar */
         .navbar {
             position: fixed;
             top: 0;
@@ -60,27 +57,10 @@
             transition: color 0.3s ease-in-out;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #ff758c;
-            left: 0;
-            bottom: -5px;
-            transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
-        }
-
         .nav-links a:hover {
             color: #ff758c;
         }
 
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -96,17 +76,13 @@
             text-transform: uppercase;
             color: #ffffff;
             text-shadow: 0 0 10px #ff758c, 0 0 20px #ff7eb3;
-            animation: neonGlow 1.5s infinite alternate;
         }
 
         .hero p {
             font-size: 18px;
             margin-top: 10px;
-            opacity: 0;
-            animation: slideUp 1.5s ease-in-out forwards;
         }
 
-        /* Advanced Button Animation */
         .cta-button {
             margin-top: 20px;
             padding: 12px 24px;
@@ -117,61 +93,14 @@
             background: linear-gradient(135deg, #ff758c, #ff7eb3);
             color: #fff;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .cta-button::before {
-            content: "";
-            position: absolute;
-            width: 300%;
-            height: 300%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-            top: -100%;
-            left: -100%;
-            transform: translateX(-50%) translateY(-50%);
-            transition: all 0.4s ease-in-out;
         }
 
         .cta-button:hover {
             transform: scale(1.1);
             box-shadow: 0px 8px 20px rgba(255, 118, 152, 0.4);
-        }
-
-        .cta-button:hover::before {
-            top: 50%;
-            left: 50%;
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes neonGlow {
-            0% {
-                text-shadow: 0 0 10px #ff758c, 0 0 20px #ff7eb3;
-            }
-            100% {
-                text-shadow: 0 0 15px #ff758c, 0 0 30px #ff7eb3;
-            }
-        }
-
-        @keyframes glow {
-            0% {
-                text-shadow: 0px 0px 10px #ff758c;
-            }
-            100% {
-                text-shadow: 0px 0px 20px #ff758c;
-            }
         }
 
         footer {
@@ -182,7 +111,6 @@
             font-size: 14px;
             opacity: 0.7;
         }
-
     </style>
 </head>
 <body>
@@ -199,7 +127,8 @@
     <div class="hero">
         <h1>Analyze Market Sentiments with AI</h1>
         <p>Gain real-time insights into financial trends using advanced sentiment analysis.</p>
-        <button class="cta-button">Get Started</button>
+        <button class="cta-button" onclick="window.location.href='predict'">Get Started</button>
+
     </div>
 
     <footer>© 2025 Financial Sentiment Analysis. All rights reserved.</footer>
