@@ -3,61 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Sentiment Analysis</title>
+    <title>Predict Sentiment</title>
     <style>
+        /* Smooth fade-in animation for the body */
         body {
-            background-color: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a40, #3a0ca3);
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #ffffff;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        .container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-            text-align: center;
-            width: 300px;
-            animation: fadeIn 1s ease-in-out;
-        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+
+        /* Container with glassmorphism effect */
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 420px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.4em;
+            color: #ffcc00;
+            animation: slideDown 0.8s ease-out;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Neon glowing textarea */
+        textarea {
+            width: 90%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1em;
+            resize: none;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #ffcc00;
+            box-shadow: 0 0 12px #ffcc00;
+        }
+
+        /* Glowing button effect */
+        .btn {
+            background: linear-gradient(90deg, #ff5733, #ffcc00);
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        input {
-            background: #333;
-            color: #fff;
-        }
-        button {
-            background: #ff4081;
-            color: white;
+            padding: 12px 28px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            color: #ffffff;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
         }
-        button:hover {
-            background: #ff79a5;
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.9);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer fades in slowly */
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #d1d1e9;
+            animation: fadeInFooter 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInFooter {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Chatgpt Sentiment Analysis</h2>
-        <form action="/predict" method="post">
-            <input type="text" name="message" placeholder="Enter your message" required>
-            <button type="submit">Known Sentiment</button>
+        <h1>Sentiment Prediction</h1>
+        <form action="/predict" method="POST">
+            <textarea name="message" placeholder="Enter your message..." required></textarea>
+            <br><br>
+            <button type="submit" class="btn">Know Sentiment</button>
         </form>
+        <div class="footer">
+            <p>Powered by Your Sentiment Analysis Model</p>
+        </div>
     </div>
 </body>
 </html>

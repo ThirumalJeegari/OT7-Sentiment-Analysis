@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Sentiment Analysis</title>
+    <title>Sentiment Analysis</title>
     <style>
         body {
             background-color: #121212;
-            color: #ffffff;
+            color: #fff;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -16,53 +16,39 @@
             margin: 0;
         }
         .container {
-            text-align: center;
             background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 350px;
             animation: fadeIn 1s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        textarea {
-            width: 100%;
-            height: 100px;
-            background: #2a2a2a;
-            border: none;
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            outline: none;
-        }
         button {
-            margin-top: 10px;
-            background: #ff6b6b;
+            background: #ff4081;
+            color: #fff;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 10px 15px;
+            margin-top: 10px;
             border-radius: 5px;
             cursor: pointer;
-            color: #fff;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 16px;
+            transition: 0.3s;
         }
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+            background: #e73370;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Enter Your Message</h2>
-        <form action="/predict" method="POST">
-            <textarea name="message" placeholder="Type your message here..."></textarea>
-            <br>
-            <button type="submit">Know Sentiment</button>
-        </form>
+        <h2>Sentiment Analysis</h2>
+        <button onclick="window.location.href='/predict'">Predict Sentiment</button>
     </div>
 </body>
 </html>
