@@ -23,6 +23,15 @@ def predict():
         with open('model.pickle',"rb") as md_file:
             model=pickle.load(md_file)
         pred=model.predict(dt)
+        if pred[0]==1:
+            pred = "Positive"
+        elif pred[0]==0:
+            pred = "Neutral"
+        else:
+            pred = "Negative"
+        # prediction = str(pred[0])  # Convert prediction to string
+        
+        return render_template("result.html", prediction=pred)
         print(pred)
         return jsonify({"prediction":str(pred[0])})
 
