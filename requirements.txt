@@ -1,0 +1,4 @@
+gunicorn 
+flask
+scikit_learn
+nltk
